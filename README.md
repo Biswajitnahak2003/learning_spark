@@ -11,25 +11,22 @@ A hands-on learning repository for Apache PySpark, covering concepts from basics
 ## 🛠️ Setup
 
 ```bash
-# Create virtual environment and install dependencies
-uv sync
+# Clone the repository
+git clone https://github.com/Biswajitnahak2003/learning_spark.git
+cd learning_spark
 
-# Or install manually
-uv pip install pyspark jupyter
+# Create virtual environment and install dependencies
+uv venv
+uv init
+uv add pyspark ipykernel
 ```
 
 ## 🚀 How to Run
 
-```bash
-# Activate virtual environment
-source .venv/bin/activate
-
-# Launch Jupyter
-jupyter notebook
-```
-
-1. Navigate to the respective day folder
-2. Run the notebook cells sequentially
+1. Open the project in VS Code or Jupyter
+2. Select the kernel: `.venv` (Python 3.11)
+3. Navigate to the respective day folder
+4. Run the notebook cells sequentially
 
 ## 📁 Repository Structure
 
