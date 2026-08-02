@@ -11,46 +11,48 @@ A hands-on learning repository for Apache PySpark, covering concepts from basics
 ## 🛠️ Setup
 
 ```bash
-# Create virtual environment
-python -m venv .venv
-source .venv/bin/activate
+# Create virtual environment and install dependencies
+uv sync
 
-# Install dependencies
-pip install pyspark jupyter
+# Or install manually
+uv pip install pyspark jupyter
 ```
 
 ## 🚀 How to Run
 
-1. Activate the virtual environment
-2. Launch Jupyter: `jupyter notebook`
-3. Navigate to the respective day folder
-4. Run the notebook cells sequentially
+```bash
+# Activate virtual environment
+source .venv/bin/activate
+
+# Launch Jupyter
+jupyter notebook
+```
+
+1. Navigate to the respective day folder
+2. Run the notebook cells sequentially
 
 ## 📁 Repository Structure
 
 ```
-pyspark-learning/
+learning_spark/
 ├── README.md
+├── LICENSE
 ├── day1/
 │   ├── README.md
 │   └── spark_day1.ipynb
 ├── dataset/
 │   └── Customers.csv
-├── parquet_path/
 ├── pyproject.toml
+├── uv.lock
 └── .python-version
 ```
 
-## 📝 Topics Covered
+## 📝 Summary
 
-### Day 1 - Spark Basics
-- Creating SparkSession & SparkContext
-- RDD operations (parallelize, map, collect)
-- Reading CSV files (multiple methods)
-- DataFrame operations (show, take, printSchema)
-- Column renaming with `withColumnRenamed`
-- Writing data to Parquet format
+This repository tracks my PySpark learning journey, covering:
+
+- **Day 1**: Spark basics - SparkSession, RDDs, DataFrames, reading CSV, writing Parquet
 
 ## 📄 License
 
-This project is for learning purposes.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
