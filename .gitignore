@@ -1,0 +1,19 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Windows Zone.Identifier files
+*:Zone.Identifier
+
+# Parquet output
+parquet_path/
+
+# Mimocode
+.mimocode/
