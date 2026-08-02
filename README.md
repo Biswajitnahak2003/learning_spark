@@ -17,16 +17,16 @@ cd learning_spark
 
 # Create virtual environment and install dependencies
 uv venv
+source .venv/bin/activate
 uv init
 uv add pyspark ipykernel
 ```
 
 ## 🚀 How to Run
 
-1. Open the project in VS Code or Jupyter
+1. Navigate to the respective day folder
 2. Select the kernel: `.venv` (Python 3.11)
-3. Navigate to the respective day folder
-4. Run the notebook cells sequentially
+3. Run the notebook cells sequentially
 
 ## 📁 Repository Structure
 
@@ -43,12 +43,6 @@ learning_spark/
 ├── uv.lock
 └── .python-version
 ```
-
-## 📝 Summary
-
-This repository tracks my PySpark learning journey, covering:
-
-- **Day 1**: Spark basics - SparkSession, RDDs, DataFrames, reading CSV, writing Parquet
 
 ## 📄 License
 
