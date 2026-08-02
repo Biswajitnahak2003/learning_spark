@@ -48,6 +48,7 @@ spark-warehouse/
 
 # Parquet output
 parquet_path/
+dataset/parquet_output/
 
 # Logs
 *.log

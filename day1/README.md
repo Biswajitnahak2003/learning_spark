@@ -116,7 +116,7 @@ Always stop the session to release resources.
 
 ---
 
-## 📝 Key Takeaways
+## 📝 Summary
 
 | Concept | Description |
 |---------|-------------|
