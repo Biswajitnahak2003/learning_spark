@@ -1,15 +1,51 @@
 # PySpark Learning Journey
 
-A hands-on learning repository for Apache PySpark, covering concepts from basics to advanced topics.
+A hands-on learning repository for Apache PySpark, covering concepts from basics to advanced topics. Each day includes a Jupyter notebook with explanations, code examples, and practical exercises.
 
-## 📚 Structure
+---
 
-| Day | Topic | Description |
-|-----|-------|-------------|
-| [Day 1](./day1/) | Spark Basics | SparkSession, RDDs, DataFrames, CSV & Parquet |
-| [Day 2](./day2/) | Slicing, Dicing & Mutating | Select, Filter, withColumn, when/otherwise |
+## Table of Contents
 
-## 🛠️ Setup
+- [About](#about)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+- [How to Run](#how-to-run)
+- [Course Content](#course-content)
+- [Repository Structure](#repository-structure)
+- [Spark Architecture](#spark-architecture)
+- [Spark UI](#spark-ui)
+- [License](#license)
+
+---
+
+## About
+
+This repository documents my journey of learning PySpark. Each day focuses on specific concepts with:
+- Detailed explanations in markdown
+- Hands-on code examples
+- Practical exercises
+
+---
+
+## Tech Stack
+
+| Tool | Purpose |
+|------|---------|
+| **Python 3.11** | Programming language |
+| **PySpark** | Apache Spark Python API |
+| **Jupyter Notebook** | Interactive development environment |
+| **uv** | Fast Python package manager |
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Python 3.11+
+- [uv](https://docs.astral.sh/uv/) package manager
+
+### Installation
 
 ```bash
 # Clone the repository
@@ -23,13 +59,47 @@ uv init
 uv add pyspark ipykernel
 ```
 
-## 🚀 How to Run
+---
+
+## How to Run
 
 1. Navigate to the respective day folder
 2. Select the kernel: `.venv` (Python 3.11)
 3. Run the notebook cells sequentially
 
-## 🏗️ Spark Architecture
+---
+
+## Course Content
+
+| Day | Topic | Description |
+|-----|-------|-------------|
+| [Day 1](./day1/) | Spark Basics | SparkSession, RDDs, DataFrames, CSV & Parquet |
+| [Day 2](./day2/) | Slicing, Dicing & Mutating | Select, Filter, withColumn, when/otherwise |
+
+---
+
+## Repository Structure
+
+```
+learning_spark/
+├── README.md
+├── LICENSE
+├── day1/
+│   ├── README.md
+│   └── spark_day1.ipynb
+├── day2/
+│   ├── README.md
+│   └── spark_day2.ipynb
+├── dataset/
+│   └── Customers.csv
+├── pyproject.toml
+├── uv.lock
+└── .python-version
+```
+
+---
+
+## Spark Architecture
 
 ```
                     ┌─────────────────────────────────────────┐
@@ -83,7 +153,7 @@ uv add pyspark ipykernel
 
 ---
 
-## 🔍 Spark UI
+## Spark UI
 
 The Spark UI is a web interface for monitoring and debugging Spark applications.
 
@@ -121,25 +191,10 @@ The Spark UI is a web interface for monitoring and debugging Spark applications.
 
 ---
 
-## 📁 Repository Structure
-
-```
-learning_spark/
-├── README.md
-├── LICENSE
-├── day1/
-│   ├── README.md
-│   └── spark_day1.ipynb
-├── day2/
-│   ├── README.md
-│   └── spark_day2.ipynb
-├── dataset/
-│   └── Customers.csv
-├── pyproject.toml
-├── uv.lock
-└── .python-version
-```
-
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+<p align="center">Made with PySpark</p>
