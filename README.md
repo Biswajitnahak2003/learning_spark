@@ -29,6 +29,98 @@ uv add pyspark ipykernel
 2. Select the kernel: `.venv` (Python 3.11)
 3. Run the notebook cells sequentially
 
+## 🏗️ Spark Architecture
+
+```
+                    ┌─────────────────────────────────────────┐
+                    │              DRIVER PROGRAM              │
+                    │         (Your PySpark Code)             │
+                    │    SparkSession / SparkContext           │
+                    └─────────────────┬───────────────────────┘
+                                      │
+                                      ▼
+                    ┌─────────────────────────────────────────┐
+                    │            CLUSTER MANAGER               │
+                    │      (YARN / Mesos / Kubernetes)        │
+                    └─────────────────┬───────────────────────┘
+                                      │
+              ┌───────────────────────┼───────────────────────┐
+              │                       │                       │
+              ▼                       ▼                       ▼
+    ┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+    │   EXECUTOR 1    │     │   EXECUTOR 2    │     │   EXECUTOR 3    │
+    │                 │     │                 │     │                 │
+    │  ┌───────────┐  │     │  ┌───────────┐  │     │  ┌───────────┐  │
+    │  │  Task 1   │  │     │  │  Task 2   │  │     │  │  Task 3   │  │
+    │  └───────────┘  │     │  └───────────┘  │     │  └───────────┘  │
+    │  ┌───────────┐  │     │  ┌───────────┐  │     │  ┌───────────┐  │
+    │  │  Task 4   │  │     │  │  Task 5   │  │     │  │  Task 6   │  │
+    │  └───────────┘  │     │  └───────────┘  │     │  └───────────┘  │
+    │  ┌───────────┐  │     │  ┌───────────┐  │     │  ┌───────────┐  │
+    │  │   CACHE   │  │     │  │   CACHE   │  │     │  │   CACHE   │  │
+    │  └───────────┘  │     │  └───────────┘  │     │  └───────────┘  │
+    └─────────────────┘     └─────────────────┘     └─────────────────┘
+              │                       │                       │
+              └───────────────────────┼───────────────────────┘
+                                      │
+                                      ▼
+                    ┌─────────────────────────────────────────┐
+                    │            STORAGE SYSTEM                │
+                    │   (HDFS / S3 / Local File System)       │
+                    └─────────────────────────────────────────┘
+```
+
+### Key Components
+
+| Component | Description |
+|-----------|-------------|
+| **Driver** | Runs your main() program, creates SparkContext, coordinates tasks |
+| **Cluster Manager** | Allocates resources across applications (YARN, Mesos, K8s) |
+| **Executor** | JVM process on worker node, runs tasks and stores data |
+| **Task** | Smallest unit of work, one task per partition |
+| **RDD/DataFrame** | Distributed data structure, partitioned across executors |
+| **DAG** | Directed Acyclic Graph of stages (created by Catalyst optimizer) |
+
+---
+
+## 🔍 Spark UI
+
+The Spark UI is a web interface for monitoring and debugging Spark applications.
+
+### Accessing Spark UI
+
+| Mode | URL |
+|------|-----|
+| Local | `http://localhost:4040` |
+| YARN | ResourceManager UI → Application → Tracking URL |
+| Standalone | `http://<master-host>:8080` |
+
+> **Note:** The UI is only available while the application is running. After `spark.stop()`, the UI is no longer accessible.
+
+### Spark UI Tabs
+
+| Tab | Description |
+|-----|-------------|
+| **Jobs** | List of all jobs, status (succeeded/failed), duration |
+| **Stages** | Stages within each job, task metrics, shuffle read/write |
+| **Storage** | Cached RDDs and DataFrames, memory usage |
+| **Executors** | Executor details, memory, GC time, active tasks |
+| **SQL** | SQL query plan, DAG visualization, physical plan |
+| **Environment** | Spark config, system properties, classpath |
+| **Containers** | (YARN) Container allocation and status |
+
+### Useful Metrics to Monitor
+
+| Metric | Why It Matters |
+|--------|----------------|
+| **Task Duration** | Identify skew (some tasks take longer) |
+| **Shuffle Read/Write** | High shuffle = potential optimization needed |
+| **GC Time** | High GC = memory pressure, tune heap size |
+| **Spill (Disk/Memory)** | Data spilling to disk = need more memory or partitioning |
+| **Broadcast Size** | Large broadcasts may cause OOM on executors |
+
+---
+
 ## 📁 Repository Structure
 
 ```
