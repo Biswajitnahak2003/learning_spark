@@ -7,6 +7,7 @@ A hands-on learning repository for Apache PySpark, covering concepts from basics
 | Day | Topic | Description |
 |-----|-------|-------------|
 | [Day 1](./day1/) | Spark Basics | SparkSession, RDDs, DataFrames, CSV & Parquet |
+| [Day 2](./day2/) | Slicing, Dicing & Mutating | Select, Filter, withColumn, when/otherwise |
 
 ## 🛠️ Setup
 
@@ -37,6 +38,9 @@ learning_spark/
 ├── day1/
 │   ├── README.md
 │   └── spark_day1.ipynb
+├── day2/
+│   ├── README.md
+│   └── spark_day2.ipynb
 ├── dataset/
 │   └── Customers.csv
 ├── pyproject.toml
