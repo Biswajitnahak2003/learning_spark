@@ -92,6 +92,9 @@ learning_spark/
 ├── day2/
 │   ├── README.md
 │   └── spark_day2.ipynb
+├── day3/
+│   ├── README.md
+│   └── spark_day3.ipynb
 ├── dataset/
 │   └── Customers.csv
 ├── pyproject.toml
