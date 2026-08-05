@@ -7,6 +7,7 @@
 3. **Dicing (Filtering Rows)**
 4. **Mutating (Adding/Transforming Columns)**
 5. **Practical Exercise: Parsing Log Files**
+6. **Parsing Log Files with Regexp**
 
 ---
 
@@ -116,7 +117,37 @@ txt = txt.select('timestamp', 'log_level', 'user_id', 'message')
 
 ---
 
-## 6. Stop Session
+## 6. Parsing Log Files with Regexp
+
+### Alternative Approach
+Instead of `split()`/`concat()`, we can use regular expressions with `regexp_extract()` and `regexp_replace()` for a cleaner, more robust solution.
+
+### Solution
+```python
+from pyspark.sql import functions as F
+
+pattern = r"(\w.{19})"                     ## timestamp
+pattern_2 = r"\[(\w+)\]"                   ## log_level
+pattern_3 = r"User_ID:(\d{4}|null)"        ## user_id
+pattern_4 = r"-\s(.*)$"                    ## message
+
+txt = txt.withColumn('timestamp', F.regexp_extract('value', pattern, 1))\
+        .withColumn('log_level', F.regexp_extract('value', pattern_2, 1))\
+        .withColumn('user_id', F.regexp_extract('value', pattern_3, 1))\
+        .withColumn('message', F.regexp_extract('value', pattern_4, 1))
+txt = txt.withColumn('message', F.regexp_replace(F.col('message'), r'"$', ''))
+txt.select('timestamp', 'log_level', 'user_id', 'message').show(truncate=False)
+```
+
+**Key Points:**
+- `regexp_extract(str, pattern, idx)` extracts a capture group from a regex pattern
+- `regexp_replace(str, pattern, replacement)` replaces regex matches
+- Groups are captured with `()` and referenced by 1-based index
+- More robust than split/concat for complex log formats
+
+---
+
+## 7. Stop Session
 
 ```python
 spark.stop()
@@ -137,6 +168,8 @@ Always stop the session to release resources.
 | when().otherwise() | Conditional logic (like CASE WHEN) |
 | split() | Break string into array |
 | concat() | Join strings together |
+| regexp_extract() | Extract capture group using regex |
+| regexp_replace() | Replace regex matches |
 
 ---
 
