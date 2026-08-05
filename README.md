@@ -74,7 +74,9 @@ uv add pyspark ipykernel
 | Day | Topic | Description |
 |-----|-------|-------------|
 | [Day 1](./day1/) | Spark Basics | SparkSession, RDDs, DataFrames, CSV & Parquet |
-| [Day 2](./day2/) | Slicing, Dicing & Mutating | Select, Filter, withColumn, when/otherwise |
+| [Day 2](./day2/) | Slicing, Dicing, Mutating & Regular Exp. | Select, Filter, withColumn, when/otherwise, regexp_extract & regexp_replace |
+| [Day 3](./day3/) | Groupby and Aggregation | groupBy and agg |
+
 
 ---
 
