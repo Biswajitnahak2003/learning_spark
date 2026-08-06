@@ -75,7 +75,8 @@ uv add pyspark ipykernel
 |-----|-------|-------------|
 | [Day 1](./day1/) | Spark Basics | SparkSession, RDDs, DataFrames, CSV & Parquet |
 | [Day 2](./day2/) | Slicing, Dicing, Mutating & Regular Exp. | Select, Filter, withColumn, when/otherwise, regexp_extract & regexp_replace |
-| [Day 3](./day3/) | Groupby and Aggregation | groupBy and agg |
+| [Day 3](./day3/) | Groupby, Aggregation & Date Functions | groupBy, agg, date & time functions |
+| [Day 4](./day4/) | Joins and Unions | Inner Join, Broadcast Join, Union |
 
 
 ---
@@ -95,8 +96,13 @@ learning_spark/
 ├── day3/
 │   ├── README.md
 │   └── spark_day3.ipynb
+├── day4/
+│   ├── README.md
+│   └── pyspark_day4.ipynb
 ├── dataset/
-│   └── Customers.csv
+│   ├── Customers.csv
+│   ├── Orders.csv
+│   └── server_log.txt
 ├── pyproject.toml
 ├── uv.lock
 └── .python-version
